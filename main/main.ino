@@ -25,14 +25,6 @@ void loop() {
   yValue = analogRead(VRY_PIN);
   swValue = analogRead(SW_PIN);
 
-  // Print the current values of the joystick
-  Serial.print("x = ");
-  Serial.println(xValue);
-  Serial.print("y = ");
-  Serial.println(yValue);
-  Serial.print("sw = ");
-  Serial.println(swValue);
-
   // Roughly calculates 0-255. (It's really 1023 / 4 =255.75). So, if it calculates over 255, set it to 255.
   int brightness = xValue / 4;
   if (brightness > 255)
@@ -40,4 +32,12 @@ void loop() {
 
   // Turn the LED on at that brightness 0-255.
   analogWrite(LED_PIN, brightness);
+
+  // Print the current values of the joystick
+  Serial.print("x = ");
+  Serial.println(xValue);
+  Serial.print("y = ");
+  Serial.println(yValue);
+  Serial.print("sw = ");
+  Serial.println(swValue);
 }
